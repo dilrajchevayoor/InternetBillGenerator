@@ -1,5 +1,5 @@
 import re
-from PyPDF2 import PdfFileWriter, PdfFileReader
+from PyPDF2 import PdfWriter, PdfReader
 import io
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
@@ -7,6 +7,7 @@ from reportlab.lib.pagesizes import letter
 import random
 import string
 import time
+import os  # Add this import
 
 ########## Time Functions############
 def str_time_prop(start, end, time_format, prop):
@@ -74,6 +75,10 @@ list = [
     {"Content": invoiceno, "X": Xdir+Xindent, "Y": 260}
 ]
 
+# Ensure the output directory exists
+output_dir = ".\\Out\\"
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
 
 packet = io.BytesIO()
 can = canvas.Canvas(packet, pagesize=letter)
@@ -82,13 +87,13 @@ for i in list:
 can.setFont('Times-Roman', 30)
 can.save()
 packet.seek(0)
-new_pdf = PdfFileReader(packet)
-existing_pdf = PdfFileReader(open(".\Res\Bill_Template.pdf", "rb"))
-output = PdfFileWriter()
-page = existing_pdf.getPage(0)
-page.mergePage(new_pdf.getPage(0))
-output.addPage(page)
-fname=recno+"."+date.replace("/", "_")
+new_pdf = PdfReader(packet)
+existing_pdf = PdfReader(open(".\\Res\\Bill_Template.pdf", "rb"))
+output = PdfWriter()
+page = existing_pdf.pages[0]
+page.merge_page(new_pdf.pages[0])
+output.add_page(page)
+fname = output_dir + recno + "." + date.replace("/", "_")
 outputStream = open(fname+".pdf", "wb")
 output.write(outputStream)
 outputStream.close()
