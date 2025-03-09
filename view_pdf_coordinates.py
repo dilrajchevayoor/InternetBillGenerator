@@ -39,7 +39,7 @@ def on_click(event):
 
 def copy_to_clipboard(x, y):
     """Copy accurate PDF X, Y coordinates to clipboard."""
-    coords = f'"X": {x:.2f}, "Y": {y:.2f}'
+    coords = f'"x": {x:.2f}, "y": {y:.2f}'
     pyperclip.copy(coords)
 
 def main():
