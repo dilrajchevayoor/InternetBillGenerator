@@ -150,16 +150,16 @@ box_height = 142
 
 # Summary Data
 summary_data = [
-    {"content": "Summary of Charges", "x": summary_x, "y": summary_y + 100, "size": FONT_SIZE + 1, "font": "UnicodeFont-Bold"},
-    {"content": f"Recurring Charges: ₹ {recurring_charges:.2f}", "x": summary_x + 10, "y": summary_y + 85, "size": FONT_SIZE, "font": "UnicodeFont"},
-    {"content": "One Time Charges: ₹ 0.00", "x": summary_x + 10, "y": summary_y + 70, "size": FONT_SIZE, "font": "UnicodeFont"},
-    {"content": "Usage Charges: ₹ 0.00", "x": summary_x + 10, "y": summary_y + 55, "size": FONT_SIZE, "font": "UnicodeFont"},
-    {"content": "Miscellaneous Charges: ₹ 0.00", "x": summary_x + 10, "y": summary_y + 40, "size": FONT_SIZE, "font": "UnicodeFont"},
-    {"content": "Discounts: ₹ 0.00", "x": summary_x + 10, "y": summary_y + 25, "size": FONT_SIZE, "font": "UnicodeFont"},
-    {"content": "Late Fee: ₹ 0.00", "x": summary_x + 10, "y": summary_y + 10, "size": FONT_SIZE, "font": "UnicodeFont"},
-    {"content": f"Total Taxable (Rs.): ₹ {recurring_charges:.2f}", "x": summary_x + 10, "y": summary_y - 5, "size": FONT_SIZE, "font": "UnicodeFont-Bold"},
-    {"content": f"Tax: ₹ {tax_amount:.2f}", "x": summary_x + 10, "y": summary_y - 20, "size": FONT_SIZE, "font": "UnicodeFont-Bold"},
-    {"content": f"Total Current Charges: ₹ {amount}", "x": summary_x + 10, "y": summary_y - 35, "size": FONT_SIZE, "font": "UnicodeFont-Bold"},
+    {"content": "Summary of Charges", "x": summary_x, "y": summary_y + 100, "size": FONT_SIZE, "font": "UnicodeFont-Bold"},
+    {"content": f"Recurring Charges: ₹{recurring_charges:.2f}", "x": summary_x + 10, "y": summary_y + 85, "size": FONT_SIZE, "font": "UnicodeFont"},
+    {"content": "One Time Charges: ₹0.00", "x": summary_x + 10, "y": summary_y + 70, "size": FONT_SIZE, "font": "UnicodeFont"},
+    {"content": "Usage Charges: ₹0.00", "x": summary_x + 10, "y": summary_y + 55, "size": FONT_SIZE, "font": "UnicodeFont"},
+    {"content": "Miscellaneous Charges: ₹0.00", "x": summary_x + 10, "y": summary_y + 40, "size": FONT_SIZE, "font": "UnicodeFont"},
+    {"content": "Discounts: ₹0.00", "x": summary_x + 10, "y": summary_y + 25, "size": FONT_SIZE, "font": "UnicodeFont"},
+    {"content": "Late Fee: ₹0.00", "x": summary_x + 10, "y": summary_y + 10, "size": FONT_SIZE, "font": "UnicodeFont"},
+    {"content": f"Total Taxable (Rs.): ₹{recurring_charges:.2f}", "x": summary_x + 10, "y": summary_y - 5, "size": FONT_SIZE, "font": "UnicodeFont-Bold"},
+    {"content": f"Tax: ₹{tax_amount:.2f}", "x": summary_x + 10, "y": summary_y - 20, "size": FONT_SIZE, "font": "UnicodeFont-Bold"},
+    {"content": f"Total Current Charges: ₹{amount}", "x": summary_x + 10, "y": summary_y - 35, "size": FONT_SIZE, "font": "UnicodeFont-Bold"},
 ]
 
 # Adjust Y positions for summary data to avoid overlap
@@ -187,7 +187,7 @@ table_width = sum(col_widths)
 table_height = row_height * 4  # 1 header row + 3 data rows
 
 # Draw "Tax Details" Heading
-can.setFont("UnicodeFont-Bold", FONT_SIZE + 2)
+can.setFont("UnicodeFont-Bold", FONT_SIZE)
 #"x": 329.56, "y": 451.83
 can.drawString(329.56, 451.83, "Tax Details")
 
